@@ -3,29 +3,46 @@
 namespace App\Http\Controllers;
 
 use BotMan\BotMan\BotMan;
+use Illuminate\Http\Request;
 use BotMan\BotMan\Messages\Incoming\Answer;
-use BotMan\BotMan\BotManFactory;
-use BotMan\BotMan\Drivers\DriverManager;
 
 class BotManController extends Controller
 {
-    public function handle()
-    {
+    /**
+     * Handle the incoming messages from the Botman chatbot.
+     */
+    public function handle(){
         $botman = app('botman');
-
+            // Listen for any message
         $botman->hears('{message}', function($botman, $message) {
-            // Simple response or AI-based logic here
-            $response = $this->getProductRecommendation($message);
-            $botman->reply($response);
+        // Convert the message to lowercase to handle case insensitivity
+                $message = strtolower($message);
+                // If the user says 'hi', start a conversation to ask for their name
+        if ($message == 'hi') {
+            $this->askName($botman);
+        }
+                // For any other input, send a default message
+        else {
+        $botman->reply("Start a conversation by saying hi.");
+        }
         });
-
         $botman->listen();
     }
-
-    private function getProductRecommendation($message)
-    {
-        // AI logic to recommend products based on message
-        // For example, integrating a pre-trained model or simple keyword matching
-        return "Here are some product recommendations based on your interest in $message.";
+    /**
+     * Ask the user for their name when they say 'hi'.
+     */
+    public function askName($botman){
+        // For fewer questions, you can use the inline conversation approach as shown below. Alternatively, use a dedicated conversation class for multi-step conversations
+        $botman->ask('Hello! What is your name?', function(Answer $answer, $conversation) {
+                // Capture the user's answer
+        $name = $answer->getText();
+                // Respond with a personalized message
+        $this->say('Nice to meet you, ' . $name);
+        //Continue inline conversation.
+        $conversation->ask('Can you advise about your email address.', function(Answer $answer, $conversation){
+        $email = $answer->getText();
+        $this->say('Email : '.$email);
+        });
+        });
     }
 }

@@ -260,6 +260,8 @@
     </div>
   </section>
 
+  @include('home.chatbot')
+
   <!-- info section -->
    @include('home.footer')
 </body>

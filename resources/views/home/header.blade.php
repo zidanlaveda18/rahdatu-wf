@@ -75,9 +75,9 @@
           <a class="nav-link" href="{{ url('/why') }}">Why Us</a>
         </li>
 
-        <li class="nav-item {{ request()->is('contact_us') ? 'active' : '' }}">
+    <!--<li class="nav-item {{ request()->is('contact_us') ? 'active' : '' }}">
           <a class="nav-link" href="{{ url('/contact_us') }}">Chat With Us</a>
-        </li>
+        </li> -->
         
         <div class="user_option">
         @if (Route::has('login'))

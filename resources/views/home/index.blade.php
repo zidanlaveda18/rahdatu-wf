@@ -16,7 +16,10 @@
   <!-- end hero area -->
 
   <!-- shop section -->
-    @include('home.product')
+  @include('home.product')
+
+  @include('home.chatbot')
+
   <!-- info section -->
    @include('home.footer')
 </body>
