@@ -77,4 +77,4 @@ Route::get('contact_us',[HomeController::class,'contact_us']);
 
 //Route::get('admin/dashboard', [AdminController::class, 'index'])->middleware(['auth', 'admin']);
 
-Route::post('/chatbot', 'ChatbotController@handleMessage');
+Route::match(['get', 'post'], '/botman', 'BotManController@handle');
