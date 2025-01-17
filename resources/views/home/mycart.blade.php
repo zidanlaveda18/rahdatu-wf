@@ -94,7 +94,7 @@
     </div>
 
     <div class="cart-container">
-        <h2 class="heading">My Cart</h2>
+        <h2 class="heading">Keranjang Belanja</h2>
         <table>
             <tr>
                 <th>Product Name</th>
@@ -114,7 +114,7 @@
                     <form action="{{ url('remove_cart', $cart->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="submit" class="btn btn-danger">Hapus</button>
                     </form>
                 </td>
             </tr>
@@ -139,12 +139,8 @@
                 <input type="text" name="phone" class="form-control" value="{{ Auth::user()->phone }}" required>
             </div>
             <div class="mb-3">
-                <label for="phone" class="form-label">Bukti Pembayaran</label>
+                <label for="payment_proof" class="form-label">Bukti Pembayaran</label>
                 <input type="file" name="payment_proof" accept="image/*" required>
-            </div>
-            <div class="mb-3">
-                <label for="image">Foto Produk</label>
-                <input type="file" id="image" name="image">
             </div>
             <div class="payment-instructions">
                 <h3>Tata Cara Pembayaran</h3>

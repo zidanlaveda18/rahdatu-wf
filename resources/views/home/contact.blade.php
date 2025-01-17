@@ -134,7 +134,7 @@
         <div class="chat-messages" id="chat-messages"></div>
         <div class="chat-input">
             <textarea id="user-input" rows="1" placeholder="Type your message..."></textarea>
-            <button onclick="sendMessage()">Send</button>
+            <button onclick="sendMessage()">Send</button> 
         </div>
     </div>
 

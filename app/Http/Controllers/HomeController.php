@@ -140,7 +140,7 @@ class HomeController extends Controller
         }
 
         toastr()->timeOut(5000)->closeButton()->success('Produk berhasil dipesan');
-        return redirect()->route('myorders');
+        return redirect('home.order');
     }
 
     public function myorders()

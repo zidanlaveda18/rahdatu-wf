@@ -34,13 +34,10 @@
                   </a>
                 </li>
 
-                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-layers"></i>Kelola Pesanan </a>
-                  <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="{{url('view_order')}}">Lihat Pesanan</a></li> 
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                  </ul>
-                </li>
-                
+                <li>
+                  <a href="{{url('view_order')}}">
+                    <i class="icon-layers"></i>Kelola Pesanan
+                  </a>
+                </li>      
         </ul>
       </nav>

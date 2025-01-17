@@ -71,6 +71,7 @@
                 <tr>
                     <th>Nama Produk</th>
                     <th>Harga</th>
+                    <th>Verifikasi Pembayaran</th>
                     <th>Status Pengiriman</th>
                     <th>Gambar Produk</th>
                 </tr>
@@ -78,6 +79,7 @@
                 <tr>
                     <td>{{ $order->product->title }}</td>
                     <td>Rp.{{ $order->product->price }}</td>
+                    <td></td>
                     <td>{{ $order->status }}</td>
                     <td>
                         <img src="/products/{{ $order->product->image }}" alt="{{ $order->product->title }}" width="100">

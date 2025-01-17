@@ -47,6 +47,8 @@
         margin-top: 20px;
         font-style: italic; /* Miring untuk deskripsi */
         color: #666; /* Warna teks deskripsi */
+        text-align: justify;
+        line-height: 1.8;
     }
 
     .btn {
