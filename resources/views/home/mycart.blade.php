@@ -153,7 +153,7 @@
                     <li>Gunakan nama lengkap Anda sebagai referensi pembayaran.</li>
                     <li>Unggah bukti pembayaran pada kolom di atas untuk verifikasi.</li>
                     <li>Pesanan Anda akan diverifikasi dalam 1-2 hari kerja.</li>
-                </ul>
+                </ul> 
             </div>
             <button type="submit" class="btn btn-primary">Confirm Order</button>
         </form>
