@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ChatbotController;
+use App\Http\Controllers\BotManController;
 
 Route::get('/',[HomeController::class,'home']);
 
@@ -75,4 +75,4 @@ Route::get('why',[HomeController::class,'why']);
 
 //Route::get('admin/dashboard', [AdminController::class, 'index'])->middleware(['auth', 'admin']);
 
-Route::match(['get', 'post'], '/botman', 'BotManController@handle');
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);

@@ -17,7 +17,6 @@
             placeholderText: 'Ketik pesan Anda...',
             mainColor: '#0084ff',
             bubbleBackground: '#0084ff',
-            bubbleAvatarUrl: '/path-to-avatar-image.jpg',
             aboutText: 'Start the conversation with Hi',
             aboutLink: 'https://yourwebsite.com'
         };

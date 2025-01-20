@@ -9,6 +9,7 @@
         "barryvdh/laravel-dompdf": "^3.0",
         "botman/botman": "^2.8",
         "botman/driver-web": "^1.5",
+        "guzzlehttp/guzzle": "^7.9",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "openai-php/laravel": "^0.10.2",

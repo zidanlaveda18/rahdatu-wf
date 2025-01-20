@@ -46,9 +46,6 @@
         margin-left: auto; /* Push user options to the right */
     }
 
-    .user_option li {
-        margin-left: 15px; /* Spasi antar item user options */
-    }
 </style>
 
 <header class="header_section">
@@ -74,10 +71,6 @@
         <li class="nav-item {{ request()->is('why') ? 'active' : '' }}">
           <a class="nav-link" href="{{ url('/why') }}">Why Us</a>
         </li>
-
-    <!--<li class="nav-item {{ request()->is('contact_us') ? 'active' : '' }}">
-          <a class="nav-link" href="{{ url('/contact_us') }}">Chat With Us</a>
-        </li> -->
         
         <div class="user_option">
         @if (Route::has('login'))
@@ -101,6 +94,9 @@
               </button>
             </form>
           </li>
+
+          <span class="greeting">Halo, {{ Auth::user()->name }}</span>
+
           @else
           <li>
             <a href="{{ url('/login') }}">
