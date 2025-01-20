@@ -7,12 +7,19 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+        <!-- Chatbot widget will be injected here -->
     </body>
-    <!--<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css"> -->
     <script>
         var botmanWidget = {
-            aboutText: 'Start the conversation with Hi',
+            frameEndpoint: '/botman/chat',
+            title: 'Rahdatu Furniture Assistant',
             introMessage: "Hai, apa yang bisa saya bantu?",
+            placeholderText: 'Ketik pesan Anda...',
+            mainColor: '#0084ff',
+            bubbleBackground: '#0084ff',
+            bubbleAvatarUrl: '/path-to-avatar-image.jpg',
+            aboutText: 'Start the conversation with Hi',
+            aboutLink: 'https://yourwebsite.com'
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js"></script>

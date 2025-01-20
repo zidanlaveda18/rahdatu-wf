@@ -73,8 +73,6 @@ Route::get('shop',[HomeController::class,'shop']);
 
 Route::get('why',[HomeController::class,'why']);
 
-Route::get('contact_us',[HomeController::class,'contact_us']);
-
 //Route::get('admin/dashboard', [AdminController::class, 'index'])->middleware(['auth', 'admin']);
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
