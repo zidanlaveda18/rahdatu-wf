@@ -1,106 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   @include('home.css')
-
   <style type="text/css">
     .hero_area {
-        background-color: #f8f9fa; /* Latar belakang yang lebih cerah */
+        background-color: #f8f9fa;
         padding: 20px 0;
     }
-
     .shop_section {
         padding: 60px 0;
     }
-
     .heading_container {
-        margin-bottom: 40px;
+        margin-bottom: 50px;
+        text-align: center;
     }
-
-    .div_center {
+    .product-container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
-        padding: 30px;
-        background-color: #fff; /* Latar belakang putih untuk gambar */
-        border-radius: 10px; /* Sudut melengkung */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+        gap: 20px;
+        max-width: 1200px;
+        margin: auto;
     }
-
-    .detail-box {
-        padding: 15px;
-        text-align: center; /* Rata tengah teks */
+    .product-image {
+        flex: 1;
+        max-width: 45%;
     }
-
-    .detail-box h6 {
-        margin: 10px 0;
-        color: #333; /* Warna teks */
+    .product-image img {
+        width: 100%;
+        border-radius: 10px;
     }
-
+    .product-details {
+        flex: 1;
+        max-width: 50%;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .product-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #333;
+    }
     .price {
-        font-size: 1.5rem; /* Ukuran font lebih besar untuk harga */
-        color: #28a745; /* Warna hijau untuk harga */
+        font-size: 2rem;
+        color: #28a745;
+        font-weight: bold;
+        margin-top: 15px;
     }
-
+    .category {
+        font-size: 1rem;
+        color: #777;
+        margin: 5px 0
+    }
     .description {
-        margin-top: 20px;
-        font-style: italic; /* Miring untuk deskripsi */
-        color: #666; /* Warna teks deskripsi */
+        font-size: 1rem;
+        color: #555;
+        margin-top: 10px;
         text-align: justify;
-        line-height: 1.8;
     }
-
     .btn {
-        background-color: #007bff; /* Tombol biru */
-        color: white;
-        border: none;
-        padding: 10px 20px;
+      display: block;
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        font-size: 1.2rem;
         border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s; /* Animasi saat hover */
+        transition: background 0.3s;
+        text-decoration: none;
     }
-
     .btn:hover {
         background-color: #0056b3; /* Warna saat hover */
     }
   </style>
 </head>
-
 <body>
   <div class="hero_area">
     @include('home.header')
     
   </div>
-
-  <section class="shop_section layout_padding">
+  <section class="hero_area">
     <div class="container">
-      <div class="heading_container heading_center">
-        <h2>{{$data->title}}</h2>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box"> 
-            <div class="div_center">
-              <img width="400" src="/products/{{$data->image}}" alt="">
-            </div>
-            <div class="detail-box">
-              <h6>{{$data->title}}</h6>
-              <h6 class="price">Rp. {{$data->price}}</h6>
-            </div>
-            <div class="detail-box">
-              <h6>Category: {{$data->category}}</h6>
-              <h6>Stok Tersedia: <span>{{$data->quantity}} Pcs</span></h6>
-            </div>
-            <div class="detail-box">
-              <p class="description">{{$data->description}}</p>
-            </div>
-            <div class="detail-box">
-              <form action="{{ url('add_cart', $data->id) }}" method="POST">
-                @csrf
-                <button type="submit" class="btn btn-primary">Tambahkan Keranjang</button>
-              </form>
-            </div>
+      <h2 class="heading_container">Detail Produk</h2>
+      <div class="product-container">
+        <div class="product-image">
+          <img src="/products/{{$data->image}}" alt="">
+        </div>
+        <div class="product-details">
+          <h6 class="product-title">{{ $data->title}}</h6>
+          <p class="price">Rp {{$data->price}}</p>
+          <p class="category">Kategori: {{ $data->category }}</p>
+          <p class="description">{{ $data->description }}</p>
+          <div class="detail-box">
+            <form action="{{ url('add_cart', $data->id) }}" method="POST">
+              @csrf
+              <button type="submit" class="btn btn-primary">Tambahkan Keranjang</button>
+            </form>
           </div>
         </div>
       </div>
@@ -109,5 +107,4 @@
 
   @include('home.footer')
 </body>
-
 </html>
