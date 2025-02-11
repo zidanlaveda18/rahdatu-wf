@@ -4,6 +4,72 @@ $(document).ready(function () {
 
     Chart.defaults.global.defaultFontColor = '#75787c';
 
+    // Data dari server (gantilah ini dengan hasil query SQL)
+    var salesData = [
+        { product_id: 3, bulan: "2025-02", total_terjual: 2 },
+        { product_id: 2, bulan: "2025-02", total_terjual: 1 },
+        { product_id: 12, bulan: "2024-12", total_terjual: 3 },
+        { product_id: 10, bulan: "2024-12", total_terjual: 2 },
+        { product_id: 3, bulan: "2024-12", total_terjual: 1 },
+        { product_id: 2, bulan: "2024-12", total_terjual: 1 },
+        { product_id: 1, bulan: "2024-11", total_terjual: 1 }
+    ];
+
+    // **1. Ambil daftar bulan unik untuk sumbu X**
+    var uniqueMonths = [...new Set(salesData.map(item => item.bulan))].sort();
+
+    // **2. Ambil daftar produk unik**
+    var uniqueProducts = [...new Set(salesData.map(item => item.product_id))];
+
+    // **3. Warna unik untuk tiap produk**
+    var colors = ['rgba(134, 77, 217, 0.7)', 'rgba(255, 99, 132, 0.7)', 'rgba(54, 162, 235, 0.7)',
+        'rgba(255, 206, 86, 0.7)', 'rgba(75, 192, 192, 0.7)', 'rgba(153, 102, 255, 0.7)'];
+
+    var borderColors = colors.map(color => color.replace('0.7', '1'));
+
+    // **4. Struktur dataset berdasarkan produk**
+    var datasets = uniqueProducts.map((productId, index) => {
+        return {
+            label: `Produk ${productId}`,
+            backgroundColor: colors[index % colors.length],
+            borderColor: borderColors[index % borderColors.length],
+            borderWidth: 1,
+            data: uniqueMonths.map(month => {
+                let productSale = salesData.find(item => item.product_id === productId && item.bulan === month);
+                return productSale ? productSale.total_terjual : 0;
+            })
+        };
+    });
+
+    // **5. Inisialisasi Chart.js**
+    var ctx = document.getElementById('testchart').getContext('2d');
+    var barChartExample = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: uniqueMonths, // Sumbu X -> Bulan
+            datasets: datasets // Data produk yang terjual tiap bulan
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    display: true,
+                    title: { display: true, text: "Bulan" },
+                    grid: { color: "#eee" }
+                },
+                y: {
+                    display: true,
+                    title: { display: true, text: "Total Terjual" },
+                    beginAtZero: true,
+                    grid: { color: "#eee" }
+                }
+            },
+            plugins: {
+                legend: { display: true }
+            }
+        }
+    });
+
 
     // ------------------------------------------------------- //
     // Line Chart
@@ -97,7 +163,7 @@ $(document).ready(function () {
     // ------------------------------------------------------- //
     // Bar Chart
     // ------------------------------------------------------ //
-    var BARCHARTEXMPLE    = $('#barChartExample1');
+    var BARCHARTEXMPLE = $('#barChartExample1');
     console.log("test");
     var barChartExample = new Chart(BARCHARTEXMPLE, {
         type: 'bar',
@@ -118,7 +184,7 @@ $(document).ready(function () {
             },
         },
 
-        
+
         data: {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
@@ -278,7 +344,7 @@ $(document).ready(function () {
     // ------------------------------------------------------- //
     // Bar Chart
     // ------------------------------------------------------ //
-    var BARCHARTEXMPLE    = $('#barChartExample2');
+    var BARCHARTEXMPLE = $('#barChartExample2');
     var barChartExample = new Chart(BARCHARTEXMPLE, {
         type: 'bar',
         options: {
@@ -611,7 +677,7 @@ $(document).ready(function () {
     // ------------------------------------------------------- //
     // Pie Chart
     // ------------------------------------------------------ //
-    var PIECHARTEXMPLE    = $('#visitPieChart');
+    var PIECHARTEXMPLE = $('#visitPieChart');
     var pieChartExample = new Chart(PIECHARTEXMPLE, {
         type: 'pie',
         options: {
@@ -643,7 +709,7 @@ $(document).ready(function () {
                         "#a678eb"
                     ]
                 }]
-            }
+        }
     });
 
     var pieChartExample = {

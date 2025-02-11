@@ -124,7 +124,7 @@
             @endforeach
         </table>
         <h3 class="total-price">Total belanja: Rp.{{ number_format($total, 0, ',', '.') }}</h3>
-        <form action="{{ url('confirm_order') }}" method="POST">
+        <form action="{{ url('confirm_order') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Penerima</label>
@@ -139,8 +139,8 @@
                 <input type="text" name="phone" class="form-control" value="{{ Auth::user()->phone }}" required>
             </div>
             <div class="mb-3">
-                <label for="payment_proof" class="form-label">Bukti Pembayaran</label>
-                <input type="file" name="payment_proof" accept="image/*" required>
+                <label for="image" class="form-label">Bukti Pembayaran</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
             </div>
             <div class="payment-instructions">
                 <h3>Tata Cara Pembayaran</h3>

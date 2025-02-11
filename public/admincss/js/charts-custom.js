@@ -5,14 +5,81 @@ $(document).ready(function () {
 
     Chart.defaults.global.defaultFontColor = '#75787c';
 
+    // Data dari server (gantilah ini dengan data dari query SQL)
+    var salesData = [
+        { product_id: 3, bulan: "2025-02", total_terjual: 2 },
+        { product_id: 2, bulan: "2025-02", total_terjual: 1 },
+        { product_id: 12, bulan: "2024-12", total_terjual: 3 },
+        { product_id: 10, bulan: "2024-12", total_terjual: 2 },
+        { product_id: 3, bulan: "2024-12", total_terjual: 1 },
+        { product_id: 2, bulan: "2024-12", total_terjual: 1 },
+        { product_id: 1, bulan: "2024-11", total_terjual: 1 }
+    ];
+
+    // **1. Ambil daftar bulan unik (untuk sumbu X)**
+    var uniqueMonths = [...new Set(salesData.map(item => item.bulan))].sort();
+
+    // **2. Ambil daftar produk unik**
+    var uniqueProducts = [...new Set(salesData.map(item => item.product_id))];
+
+    // **3. Warna unik untuk setiap produk**
+    var colors = ['#CF53F9', '#FF5733', '#33FF57', '#337BFF', '#FF33A8', '#FFD433', '#33FFF0'];
+
+    // **4. Struktur dataset berdasarkan produk**
+    var datasets = uniqueProducts.map((productId, index) => {
+        return {
+            label: `Produk ${productId}`,
+            fill: false,
+            lineTension: 0.3,
+            backgroundColor: "transparent",
+            borderColor: colors[index % colors.length],
+            pointBorderColor: colors[index % colors.length],
+            pointHoverBackgroundColor: colors[index % colors.length],
+            borderWidth: 2,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            data: uniqueMonths.map(month => {
+                let productSale = salesData.find(item => item.product_id === productId && item.bulan === month);
+                return productSale ? productSale.total_terjual : 0;
+            })
+        };
+    });
+
+    // **5. Inisialisasi Chart.js**
+    var ctx = document.getElementById('testchart').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: uniqueMonths, // Sumbu X -> Bulan
+            datasets: datasets // Data penjualan berdasarkan produk
+        },
+        options: {
+            scales: {
+                x: {
+                    display: true,
+                    title: { display: true, text: "Bulan" },
+                    grid: { display: false }
+                },
+                y: {
+                    display: true,
+                    title: { display: true, text: "Total Terjual" },
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: { display: true }
+            }
+        }
+    });
+
     // ------------------------------------------------------- //
     // Line Chart Custom 1
     // ------------------------------------------------------ //
-    var LINECHARTEXMPLE   = $('#lineChartCustom1');
+    var LINECHARTEXMPLE = $('#lineChartCustom1');
     var lineChartExample = new Chart(LINECHARTEXMPLE, {
         type: 'line',
         options: {
-            legend: {labels:{fontColor:"#777", fontSize: 12}},
+            legend: { labels: { fontColor: "#777", fontSize: 12 } },
             scales: {
                 xAxes: [{
                     display: false,
@@ -393,7 +460,7 @@ $(document).ready(function () {
     // ------------------------------------------------------- //
     // Bar Chart
     // ------------------------------------------------------ //
-    var BARCHARTEXMPLE    = $('#barChartCustom3');
+    var BARCHARTEXMPLE = $('#barChartCustom3');
     var barChartExample = new Chart(BARCHARTEXMPLE, {
         type: 'bar',
         options: {
@@ -487,7 +554,7 @@ $(document).ready(function () {
     // ------------------------------------------------------- //
     // Pie Chart Custom 1
     // ------------------------------------------------------ //
-    var PIECHARTEXMPLE    = $('#pieChartCustom1');
+    var PIECHARTEXMPLE = $('#pieChartCustom1');
     var pieChartExample = new Chart(PIECHARTEXMPLE, {
         type: 'pie',
         options: {
@@ -520,7 +587,7 @@ $(document).ready(function () {
                         "#a678eb"
                     ]
                 }]
-            }
+        }
     });
 
     var pieChartExample = {
@@ -599,7 +666,7 @@ $(document).ready(function () {
             }
         }
     };
-    var POLARCHARTEXMPLE  = $('#polarChartCustom');
+    var POLARCHARTEXMPLE = $('#polarChartCustom');
     var polarChartExample = new Chart(POLARCHARTEXMPLE, {
         type: 'polarArea',
         options: chartOptions,
@@ -656,7 +723,7 @@ $(document).ready(function () {
             position: 'left'
         }
     };
-    var RADARCHARTEXMPLE  = $('#radarChartCustom');
+    var RADARCHARTEXMPLE = $('#radarChartCustom');
     var radarChartExample = new Chart(RADARCHARTEXMPLE, {
         type: 'radar',
         options: chartOptions,

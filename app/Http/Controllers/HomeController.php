@@ -129,6 +129,13 @@ class HomeController extends Controller
             $order->phone = $phone;
             $order->user_id = $userid;
             $order->product_id = $carts->product_id;
+            $image = $request->image;
+            if($image)
+            {
+                $imagename = time().'.'.$image->getClientOriginalExtension();
+                $request->image->move('payment',$imagename);
+                $order->payment_proof = $imagename;
+            }
             $order->save();
         }
 

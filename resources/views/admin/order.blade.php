@@ -89,7 +89,7 @@
                         <a class="btn btn-success" href="{{url('delivered', $data->id)}}">Delivered</a>
                     </td>
                     <td>
-                       <!-- <img width="150" src="/products/{{$data->product->image}}" >-->
+                       <img width="150" src="/payment/{{$data->payment_proof}}" >
                     </td>
                 </tr>
 
