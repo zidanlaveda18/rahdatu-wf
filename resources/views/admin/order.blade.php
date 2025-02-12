@@ -74,8 +74,10 @@
                     </td>
                     <td>
                        <img width="150" src="/payment/{{$data->payment_proof}}" >
-                       
-                       <a class="btn btn-success" href="{{url('terverifikasi', $data->id)}}">Verifikasi</a>
+                       <form action="{{ url('terverifikasi', $data->id) }}">
+                            @csrf
+                            <button type="submit" class="btn btn-success">Verifikasi</button>
+                        </form>
                     </td>
                     <td>
                         @if($data->status == 'in progress')

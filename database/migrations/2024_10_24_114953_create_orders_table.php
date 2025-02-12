@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('rec_address')->nullable();
             $table->string('phone')->nullable();
             $table->string('status')->default('in progress');
-            
+            $table->string('payment_proof')->nullable();
+            $table->string('payment_proof_status')->default('Menunggu verifikasi');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');

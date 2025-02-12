@@ -51,12 +51,18 @@
     }
     .category {
         font-size: 1rem;
-        color: #777;
+        color: #333;
         margin: 5px 0
     }
     .description {
         font-size: 1rem;
-        color: #555;
+        color: #333;
+        margin-top: 10px;
+        text-align: justify;
+    }
+    .contact {
+        font-size: 1rem;
+        color: #333;
         margin-top: 10px;
         text-align: justify;
     }
@@ -94,6 +100,7 @@
           <p class="price">Rp {{$data->price}}</p>
           <p class="category">Kategori: {{ $data->category }}</p>
           <p class="description">{{ $data->description }}</p>
+          <p class="contact">Untuk info detail, kami melayani pemesanan dan custom product sesuai selera dan kebutuhan anda. Please DM atau kontak konsultasi GRATIS. Tlp/WA: 0852-1582-0912</p>
           <div class="detail-box">
             <form action="{{ url('add_cart', $data->id) }}" method="POST">
               @csrf

@@ -79,7 +79,13 @@
                 <tr>
                     <td>{{ $order->product->title }}</td>
                     <td>Rp.{{ $order->product->price }}</td>
-                    <td>{{ $order->payment_proof_status }}</td>
+                    <td>
+                        @if($order->payment_proof_status == 'Terverifikasi')
+                            <span class="badge badge-success">Terverifikasi</span>
+                        @else
+                            <span class="badge badge-warning">Menunggu Verifikasi</span>
+                        @endif
+                    </td>
                     <td>{{ $order->status }}</td>
                     <td>
                         <img src="/products/{{ $order->product->image }}" alt="{{ $order->product->title }}" width="100">

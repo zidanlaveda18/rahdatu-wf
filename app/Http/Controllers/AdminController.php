@@ -154,7 +154,7 @@ class AdminController extends Controller
     public function terverifikasi($id)
     {
         $data = Order::find($id);
-        $data->payment_proof = 'terverifikasi';
+        $data->payment_proof_status = 'Terverifikasi';
         $data->save();
         return redirect('/view_order');
     }
