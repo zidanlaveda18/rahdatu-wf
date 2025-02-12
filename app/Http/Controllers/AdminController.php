@@ -151,12 +151,12 @@ class AdminController extends Controller
         $data->save();
         return redirect('/view_order');
     }
-
-    public function print_pdf($id)
+    public function terverifikasi($id)
     {
         $data = Order::find($id);
-        $pdf = Pdf::loadView('admin.invoice', compact('data'));
-        return $pdf->download('invoice.pdf');
+        $data->payment_proof = 'terverifikasi';
+        $data->save();
+        return redirect('/view_order');
     }
 
     /*public function dashboard()

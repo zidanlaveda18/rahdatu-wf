@@ -55,9 +55,10 @@
                     <th>Nama Produk</th>
                     <th>Harga</th>
                     <th>Image</th>
+                    <th>Bukti Pembayaran</th>
                     <th>Status</th>
                     <th>Ubah Status Pesanan</th>
-                    <th>Bukti Pembayaran</th>
+                    
                 </tr>
 
                 @foreach($data as $data)
@@ -70,6 +71,11 @@
                     <td>Rp.{{$data->product->price}}</td>
                     <td>
                         <img width="150" src="/products/{{$data->product->image}}" >
+                    </td>
+                    <td>
+                       <img width="150" src="/payment/{{$data->payment_proof}}" >
+                       
+                       <a class="btn btn-success" href="{{url('terverifikasi', $data->id)}}">Verifikasi</a>
                     </td>
                     <td>
                         @if($data->status == 'in progress')
@@ -88,9 +94,7 @@
                         <a class="btn btn-primary" href="{{url('on_the_way', $data->id)}}">On the Way</a>
                         <a class="btn btn-success" href="{{url('delivered', $data->id)}}">Delivered</a>
                     </td>
-                    <td>
-                       <img width="150" src="/payment/{{$data->payment_proof}}" >
-                    </td>
+                    
                 </tr>
 
                 @endforeach

@@ -79,7 +79,7 @@
                 <tr>
                     <td>{{ $order->product->title }}</td>
                     <td>Rp.{{ $order->product->price }}</td>
-                    <td></td>
+                    <td>{{ $order->payment_proof_status }}</td>
                     <td>{{ $order->status }}</td>
                     <td>
                         <img src="/products/{{ $order->product->image }}" alt="{{ $order->product->title }}" width="100">

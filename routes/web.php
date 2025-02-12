@@ -67,7 +67,7 @@ Route::get('on_the_way/{id}',[AdminController::class,'on_the_way'])->middleware(
 
 Route::get('delivered/{id}',[AdminController::class,'delivered'])->middleware(['auth','admin']);
 
-Route::get('print_pdf/{id}',[AdminController::class,'print_pdf'])->middleware(['auth','admin']);
+Route::get('terverifikasi/{id}',[AdminController::class,'terverifikasi'])->middleware(['auth','admin']);
 
 Route::get('shop',[HomeController::class,'shop']);
 

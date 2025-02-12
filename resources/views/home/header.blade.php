@@ -88,7 +88,8 @@
             
           <li>
             <form style="padding: 15px" method="POST" action="{{ route('logout') }}">
-              @csrf <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
+              @csrf 
+              <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                 <span>Logout</span>
               </button>
