@@ -18,7 +18,7 @@
     }
 
     /* Style untuk header agar tetap terlihat saat di-scroll */
-    .header_section {
+    .header_section { 
         position: fixed;
         top: 0;
         left: 0;

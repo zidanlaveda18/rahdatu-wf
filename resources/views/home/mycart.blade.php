@@ -123,7 +123,9 @@
             ?>
             @endforeach
         </table>
+        
         <h3 class="total-price">Total belanja: Rp.{{ number_format($total, 0, ',', '.') }}</h3>
+
         <form action="{{ url('confirm_order') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
