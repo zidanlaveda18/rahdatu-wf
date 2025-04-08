@@ -30,7 +30,7 @@
 
                 <li>
                   <a href="{{url('view_product')}}">
-                    <i class="icon-picture"></i>Lihat Produk
+                    <i class="icon-picture"></i>Daftar Produk
                   </a>
                 </li>
 

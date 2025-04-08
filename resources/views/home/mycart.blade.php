@@ -156,6 +156,8 @@
             <button type="submit" class="btn btn-primary">Confirm Order</button>
         </form>
     </div>
+    
+    @include('home.chatbot')
   <!-- info section -->
    @include('home.footer')
 </body>
