@@ -97,7 +97,6 @@
         </div>
     </div>
     
-    @include('home.chatbot')
     
     @include('home.footer')
 </body>

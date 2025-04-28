@@ -157,7 +157,6 @@
         </form>
     </div>
     
-    @include('home.chatbot')
   <!-- info section -->
    @include('home.footer')
 </body>

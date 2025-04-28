@@ -100,6 +100,10 @@
             margin-top: 20px;
             margin-left: 20px;
         }
+
+        .add_product{
+            margin: 10px 0 20px 20px;
+        }
     </style>
 </head>
 
@@ -114,11 +118,16 @@
                 <h1 class="h5 no-margin-bottom">Daftar Produk</h1>
             </div>
         </div>
+            
         <form action="{{url('product_search')}}" method="get">
-            @csrf
-            <input type="search" name="search" placeholder="cari produk">
-            <input type="submit" class="btn btn-secondary" value="Cari">
-        </form>
+                @csrf
+                <input type="search" name="search" placeholder="cari produk">
+                <input type="submit" class="btn btn-secondary" value="Cari">
+            </form>
+
+        <div class="add_product">
+            <a class="btn btn-success" href="{{url('add_product')}}">Tambah produk</a>
+        </div>
 
         <div class="div_deg">
             <table class="table_deg">

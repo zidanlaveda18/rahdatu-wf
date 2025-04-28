@@ -8,7 +8,7 @@
             <p>ADMIN</p>
           </div>
         </div>
-        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+        <!-- Sidebar Navidation Menus --><span class="heading">Main</span>
         <ul class="list-unstyled">
                 <li>
                   <a href="{{url('admin/dashboard')}}"> 
@@ -16,7 +16,7 @@
                   </a>
                 </li>
                 
-                <li>
+                <!--<li>
                   <a href="{{url('view_category')}}"> 
                     <i class="icon-controls"></i>Kategori 
                   </a>
@@ -26,7 +26,7 @@
                   <a href="{{url('add_product')}}">
                     <i class="icon-controls"></i>Tambah Produk
                   </a>
-                </li>
+                </li>-->
 
                 <li>
                   <a href="{{url('view_product')}}">

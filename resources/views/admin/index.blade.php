@@ -14,7 +14,7 @@
                 @include('admin.body')
             </div>
         </div>
-    </div>
+    </div> 
     <!-- JavaScript files-->
     @include('admin.js')
   </body>

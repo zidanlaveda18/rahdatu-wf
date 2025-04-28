@@ -74,7 +74,7 @@
             <input type="number" id="qty" name="qty">
           </div>
 
-          <div class="mb-3">
+          <!--<div class="mb-3">
             <label for="category">Kategori Produk</label>
             <select id="category" name="category" required>
               <option value="">Select a Category</option>
@@ -82,7 +82,7 @@
               <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
               @endforeach
             </select>
-          </div>
+          </div>-->
 
           <div class="mb-3">
             <label for="image">Foto Produk</label>
