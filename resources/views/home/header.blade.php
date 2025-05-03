@@ -30,7 +30,7 @@
 
     /* Tambahkan padding pada konten agar tidak tertutup header */
     body {
-        padding-top: 180px; /* Sesuaikan dengan tinggi header */
+        padding-top: 100px; /* Sesuaikan dengan tinggi header */
     }
 
     /* Flexbox untuk navbar */

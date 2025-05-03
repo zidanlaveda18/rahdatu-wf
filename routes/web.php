@@ -69,6 +69,8 @@ Route::get('delivered/{id}',[AdminController::class,'delivered'])->middleware(['
 
 Route::get('terverifikasi/{id}',[AdminController::class,'terverifikasi'])->middleware(['auth','admin']);
 
+Route::get('verifikasi_gagal/{id}',[AdminController::class,'verifikasi_gagal'])->middleware(['auth','admin']);
+
 Route::get('shop',[HomeController::class,'shop']);
 
 Route::get('why',[HomeController::class,'why']);

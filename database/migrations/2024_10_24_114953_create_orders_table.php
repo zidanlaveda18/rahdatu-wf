@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('rec_address')->nullable();
             $table->string('phone')->nullable();
-            $table->string('status')->default('in progress');
+            $table->string('status')->default('Sedang Diproses');
             $table->string('payment_proof')->nullable();
             $table->string('payment_proof_status')->default('Menunggu verifikasi');
 

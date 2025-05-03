@@ -139,7 +139,7 @@ class AdminController extends Controller
     public function on_the_way($id)
     {
         $data = Order::find($id);
-        $data->status = 'On the Way';
+        $data->status = 'Sedang Dikirim';
         $data->save();
         return redirect('/view_order');
     }
@@ -147,7 +147,7 @@ class AdminController extends Controller
     public function delivered($id)
     {
         $data = Order::find($id);
-        $data->status = 'Delivered';
+        $data->status = 'Selesai';
         $data->save();
         return redirect('/view_order');
     }
@@ -159,34 +159,14 @@ class AdminController extends Controller
         return redirect('/view_order');
     }
 
-    /*public function dashboard()
+    public function verifikasi_gagal($id)
     {
-        // Label bulan (6 bulan pertama atau dinamis jika perlu)
-        $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+        $data = Order::find($id);
+        $data->payment_proof_status = 'Verifikasi Gagal';
+        $data->save();
+        return redirect('/view_order');
+    }
 
-        // Mengambil Total Pesanan per Bulan
-        $monthlyOrders = Order::selectRaw('MONTH(created_at) as month, count(*) as total_orders')
-            ->groupBy('month')
-            ->orderBy('month')
-            ->pluck('total_orders', 'month'); // Ambil data dengan indeks bulan
-
-        // Mengambil Total Pengiriman per Bulan
-        $monthlyDelivered = Order::selectRaw('MONTH(created_at) as month, count(*) as total_delivered')
-            ->where('status', 'delivered')
-            ->groupBy('month')
-            ->orderBy('month')
-            ->pluck('total_delivered', 'month'); // Ambil data dengan indeks bulan
-
-        // Mapping data untuk memastikan semua bulan ada
-        $ordersData = [];
-        $deliveredData = [];
-        foreach (range(1, 6) as $i) {
-            $ordersData[] = $monthlyOrders[$i] ?? 0; // Default 0 jika kosong
-            $deliveredData[] = $monthlyDelivered[$i] ?? 0; // Default 0 jika kosong
-        }
-
-        // Kirim data ke view
-        return view('admin.index', compact('ordersData', 'deliveredData', 'months'));
-    }*/
+    
 
 }

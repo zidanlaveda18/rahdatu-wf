@@ -57,7 +57,6 @@
                     <th>Image</th>
                     <th>Bukti Pembayaran</th>
                     <th>Status</th>
-                    <th>Ubah Status Pesanan</th>
                     
                 </tr>
 
@@ -78,23 +77,27 @@
                             @csrf
                             <button type="submit" class="btn btn-success">Verifikasi</button>
                         </form>
+                        <form action="{{ url('verifikasi_gagal', $data->id) }}">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Verifikasi Gagal</button>
+                        </form>
                     </td>
                     <td>
-                        @if($data->status == 'in progress')
+                        @if($data->status == 'Sedang Diproses')
                         <span style="color: red">{{$data->status}}</span>
 
-                        @elseif($data->status == 'On the Way')
+                        @elseif($data->status == 'Sedang Dikirim')
                         <span style="color: yellow">{{$data->status}}</span>
 
                         @else
                         <span style="color: green">{{$data->status}}</span>
 
                         @endif
+                        <div>
+                            <a class="btn btn-primary" href="{{url('on_the_way', $data->id)}}">Sedang Dikirim</a>
+                            <a class="btn btn-success" href="{{url('delivered', $data->id)}}">Selesai</a>
+                        </div>
 
-                    </td>
-                    <td>
-                        <a class="btn btn-primary" href="{{url('on_the_way', $data->id)}}">On the Way</a>
-                        <a class="btn btn-success" href="{{url('delivered', $data->id)}}">Delivered</a>
                     </td>
                     
                 </tr>

@@ -78,7 +78,7 @@
                     <input type="number" name="quantity" value="{{$data->quantity}}">
                 </div>
 
-                <div class="mb-3">
+                <!--<div class="mb-3">
                     <label for="category">Kategori Produk</label>
                     <select id="category" name="category" required>
 
@@ -91,7 +91,7 @@
                         @endforeach
 
                     </select>
-                </div>
+                </div>-->
 
                 <div class="mb-3">
                     <label>Foto Produk Saat Ini</label>

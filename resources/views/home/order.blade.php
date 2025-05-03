@@ -82,6 +82,8 @@
                     <td>
                         @if($order->payment_proof_status == 'Terverifikasi')
                             <span class="badge badge-success">Terverifikasi</span>
+                        @elseif($order->payment_proof_status == 'Verifikasi Gagal')
+                            <span class="badge badge-danger">Verifikasi Gagal</span>
                         @else
                             <span class="badge badge-warning">Menunggu Verifikasi</span>
                         @endif
